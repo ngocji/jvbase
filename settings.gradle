@@ -1,0 +1,3 @@
+include ':jivbase'
+include ':app'
+rootProject.name = "JavaBase"
