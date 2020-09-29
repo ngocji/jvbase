@@ -49,7 +49,9 @@ public class MainActivity extends BindActivity<MainContract.View, MainContract.P
                     })
                     .setDisplayHeadersAtStartUp(true);
             recyclerView.setAdapter(adapter);
-            adapter.setStickyHeaders(true);
+            adapter.setStickyHeaders(true)
+            .setLongPressDragEnabled(true)
+            .setHandleDragEnabled(true);
         }
     }
 

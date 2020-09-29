@@ -25,6 +25,7 @@ public class TestHolder extends AbstractFlexibleItem<TestHolder.ViewHolder> {
 
     public TestHolder(String data) {
         this.data = data;
+        setDraggable(true);
     }
 
     @Override

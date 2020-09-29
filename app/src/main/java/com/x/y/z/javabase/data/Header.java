@@ -14,7 +14,8 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-public class Header extends AbstractFlexibleItem<ExpandHolder.ViewHolder> {
+public class Header extends AbstractFlexibleItem<ExpandHolder.ViewHolder> implements IHeader<ExpandHolder.ViewHolder> {
+
     @Override
     public void bindViewHolder(@NotNull FlexibleAdapter<?> flexibleAdapter, @NotNull RecyclerView.ViewHolder viewHolder, int i, @NotNull List<?> list) {
         ((ExpandHolder.ViewHolder) viewHolder).textView.setText("Header");
