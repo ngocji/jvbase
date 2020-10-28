@@ -1,6 +1,6 @@
 package com.x.y.z.javabase;
 
-import com.jivbase.ui.BasePresenter;
+import com.jivbase.ui.mvp.BasePresenter;
 
 import java.util.Random;
 

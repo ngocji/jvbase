@@ -1,4 +1,4 @@
-package com.jivbase.ui;
+package com.jivbase.ui.mvp;
 
 public class BaseContract {
     public interface View {

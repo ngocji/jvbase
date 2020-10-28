@@ -1,4 +1,4 @@
-package com.jivbase.ui;
+package com.jivbase.ui.mvp;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -17,7 +17,7 @@ import butterknife.Unbinder;
 
 import static androidx.core.content.res.ResourcesCompat.ID_NULL;
 
-public abstract class BindFragment<V extends BaseContract.View, P extends BaseContract.Presenter<V>> extends Fragment {
+public abstract class MVPFragment<V extends BaseContract.View, P extends BaseContract.Presenter<V>> extends Fragment {
     private ViewInflate viewInflate = getClass().getAnnotation(ViewInflate.class);
 
     protected Unbinder unbinder;

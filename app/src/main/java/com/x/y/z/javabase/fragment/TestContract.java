@@ -1,6 +1,6 @@
 package com.x.y.z.javabase.fragment;
 
-import com.jivbase.ui.BaseContract;
+import com.jivbase.ui.mvp.BaseContract;
 import com.x.y.z.javabase.data.TestHolder;
 
 import java.util.List;

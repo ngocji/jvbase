@@ -9,8 +9,7 @@ import com.jibase.anotation.ViewInflate;
 import com.jibase.iflexible.adapter.FlexibleAdapter;
 import com.jibase.iflexible.items.abstractItems.AbstractFlexibleItem;
 import com.jibase.iflexible.listener.OnItemClickListener;
-import com.jivbase.ui.BindActivity;
-import com.x.y.z.javabase.data.ExpandHolder;
+import com.jivbase.ui.mvp.MVPActivity;
 import com.x.y.z.javabase.data.Header;
 import com.x.y.z.javabase.data.TestHolder;
 
@@ -22,7 +21,7 @@ import java.util.List;
 import butterknife.BindView;
 
 @ViewInflate(layout = R.layout.activity_main, presenter = MainPresenter.class)
-public class MainActivity extends BindActivity<MainContract.View, MainContract.Presenter> implements MainContract.View {
+public class MainActivity extends MVPActivity<MainContract.View, MainContract.Presenter> implements MainContract.View {
     @BindView(R.id.recyclerView)
     RecyclerView recyclerView;
 

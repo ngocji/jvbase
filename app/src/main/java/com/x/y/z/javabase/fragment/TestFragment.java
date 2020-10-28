@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.jibase.anotation.ViewInflate;
 import com.jibase.iflexible.adapter.FlexibleAdapter;
 import com.jibase.iflexible.listener.OnItemClickListener;
-import com.jivbase.ui.BindFragment;
+import com.jivbase.ui.mvp.MVPFragment;
 import com.x.y.z.javabase.R;
 import com.x.y.z.javabase.data.TestHolder;
 
@@ -18,7 +18,7 @@ import java.util.List;
 import butterknife.BindView;
 
 @ViewInflate(layout = R.layout.fragment_test, presenter = TestPresenter.class)
-public class TestFragment extends BindFragment<TestContract.View, TestContract.Presenter> implements TestContract.View {
+public class TestFragment extends MVPFragment<TestContract.View, TestContract.Presenter> implements TestContract.View {
     @BindView(R.id.recyclerView)
     RecyclerView recyclerView;
     private FlexibleAdapter<TestHolder> adapter;

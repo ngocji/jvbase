@@ -1,6 +1,6 @@
 package com.x.y.z.javabase.fragment;
 
-import com.jivbase.ui.BasePresenter;
+import com.jivbase.ui.mvp.BasePresenter;
 import com.x.y.z.javabase.data.TestHolder;
 
 import java.util.ArrayList;

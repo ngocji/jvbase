@@ -1,6 +1,6 @@
 package com.x.y.z.javabase;
 
-import com.jivbase.ui.BaseContract;
+import com.jivbase.ui.mvp.BaseContract;
 
 public class MainContract {
     interface View extends BaseContract.View{
