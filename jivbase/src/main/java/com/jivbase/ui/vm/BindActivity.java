@@ -10,7 +10,6 @@ import com.jibase.anotation.ViewInflate;
 import com.jibase.ui.BaseViewModel;
 
 import butterknife.ButterKnife;
-import butterknife.Unbinder;
 
 import static android.content.res.Resources.ID_NULL;
 
@@ -22,7 +21,7 @@ public abstract class BindActivity<V extends BaseViewModel> extends AppCompatAct
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        viewModel = (V) new ViewModelProvider(this, new ViewModelProvider.NewInstanceFactory()).get(viewInflate.viewModel());
+        viewModel = (V) new ViewModelProvider(this).get(viewInflate.viewModel());
         initView(savedInstanceState);
     }
 
