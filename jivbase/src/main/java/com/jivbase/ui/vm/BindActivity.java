@@ -17,8 +17,6 @@ import static android.content.res.Resources.ID_NULL;
 
 public abstract class BindActivity<V extends BaseViewModel> extends AppCompatActivity {
     private ViewInflate viewInflate = getClass().getAnnotation(ViewInflate.class);
-
-    protected Unbinder unbinder;
     protected V viewModel;
 
     @Override
@@ -28,20 +26,10 @@ public abstract class BindActivity<V extends BaseViewModel> extends AppCompatAct
         initView(savedInstanceState);
     }
 
-    @Override
-    protected void onDestroy() {
-        try {
-            unbinder.unbind();
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-        super.onDestroy();
-    }
-
     protected void initView(Bundle savedInstanceState) {
         if (viewInflate.layout() != ID_NULL) {
             setContentView(viewInflate.layout());
-            unbinder = ButterKnife.bind(this);
+            ButterKnife.bind(this);
         }
 
         onViewReady(savedInstanceState);

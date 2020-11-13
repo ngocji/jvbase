@@ -14,14 +14,11 @@ import com.jibase.anotation.ViewInflate;
 import com.jibase.ui.BaseViewModel;
 
 import butterknife.ButterKnife;
-import butterknife.Unbinder;
 
 import static androidx.core.content.res.ResourcesCompat.ID_NULL;
 
 public abstract class BindFragment<V extends BaseViewModel> extends Fragment {
     private ViewInflate viewInflate = getClass().getAnnotation(ViewInflate.class);
-
-    protected Unbinder unbinder;
     protected V viewModel;
 
     @Override
@@ -36,7 +33,7 @@ public abstract class BindFragment<V extends BaseViewModel> extends Fragment {
         View view = null;
         if (viewInflate.layout() != ID_NULL) {
             view = inflater.inflate(viewInflate.layout(), container, false);
-            unbinder = ButterKnife.bind(this, view);
+            ButterKnife.bind(this, view);
         }
         return view;
     }
@@ -46,16 +43,6 @@ public abstract class BindFragment<V extends BaseViewModel> extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         onViewReady();
         onViewListener();
-    }
-
-    @Override
-    public void onDestroyView() {
-        try {
-            unbinder.unbind();
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-        super.onDestroyView();
     }
 
     protected abstract void onViewReady();
