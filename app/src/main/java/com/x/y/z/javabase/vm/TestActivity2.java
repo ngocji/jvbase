@@ -11,10 +11,6 @@ import com.x.y.z.javabase.R;
 public class TestActivity2 extends BindActivity<Test2ViewModel> {
     @Override
     protected void onViewReady(Bundle savedInstanceState) {
-        viewModel.text.observe(this, text->{
-            Log.e("Load: "+text);
-        });
-
 
         viewModel.run();
     }

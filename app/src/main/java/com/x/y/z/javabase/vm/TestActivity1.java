@@ -15,11 +15,7 @@ import butterknife.OnClick;
 public class TestActivity1 extends BindActivity<TestViewModel> {
     @Override
     protected void onViewReady(Bundle savedInstanceState) {
-        viewModel.check.observe(this, check->{
-            Log.e("load: "+check);
-        });
 
-        viewModel.check.post(true);
     }
 
     @Override
