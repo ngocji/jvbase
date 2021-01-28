@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -41,6 +42,7 @@ public abstract class BindFragment<V extends BaseViewModel> extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        registerBackPressed();
         onViewReady();
         onViewListener();
     }
@@ -48,4 +50,18 @@ public abstract class BindFragment<V extends BaseViewModel> extends Fragment {
     protected abstract void onViewReady();
 
     protected abstract void onViewListener();
+
+    protected void onBackPressed() {
+    }
+
+    private void registerBackPressed() {
+        requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(),
+                new OnBackPressedCallback(viewInflate.enableBackPressed()) {
+                    @Override
+                    public void handleOnBackPressed() {
+                        onBackPressed();
+                    }
+                }
+        );
+    }
 }
