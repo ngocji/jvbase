@@ -31,12 +31,7 @@ public abstract class BindFragment<V extends BaseViewModel> extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = null;
-        if (viewInflate.layout() != ID_NULL) {
-            view = inflater.inflate(viewInflate.layout(), container, false);
-            ButterKnife.bind(this, view);
-        }
-        return view;
+        return initView(inflater, container);
     }
 
     @Override
@@ -47,9 +42,19 @@ public abstract class BindFragment<V extends BaseViewModel> extends Fragment {
         onViewListener();
     }
 
+    protected View initView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container) {
+        View view = null;
+        if (viewInflate.layout() != ID_NULL) {
+            view = inflater.inflate(viewInflate.layout(), container, false);
+            ButterKnife.bind(this, view);
+        }
+        return view;
+    }
+
     protected abstract void onViewReady();
 
-    protected abstract void onViewListener();
+    protected void onViewListener() {
+    }
 
     protected void onBackPressed() {
     }

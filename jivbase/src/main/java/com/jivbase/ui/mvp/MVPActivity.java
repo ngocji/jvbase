@@ -55,5 +55,7 @@ public abstract class MVPActivity<V extends BaseContract.View, P extends BaseCon
 
     protected abstract void onViewReady(Bundle savedInstanceState);
 
-    protected abstract void onViewListener();
+    protected void onViewListener(){
+
+    }
 }

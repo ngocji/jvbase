@@ -46,13 +46,7 @@ public abstract class BindDialog extends DialogFragment {
     @Nullable
     @Override
     public View onCreateView(@NotNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        if (viewInflate.layout() != ID_NULL) {
-            View view = inflater.inflate(viewInflate.layout(), container, false);
-            unbinder = ButterKnife.bind(this, view);
-            return view;
-        } else {
-            return null;
-        }
+        return initView(inflater, container);
     }
 
     @Override
@@ -65,9 +59,22 @@ public abstract class BindDialog extends DialogFragment {
         onViewListener();
     }
 
-    public abstract void onViewReady(Bundle savedInstanceState);
+    @Nullable
+    protected View initView(@NotNull LayoutInflater inflater, @Nullable ViewGroup container) {
+        if (viewInflate.layout() != ID_NULL) {
+            View view = inflater.inflate(viewInflate.layout(), container, false);
+            unbinder = ButterKnife.bind(this, view);
+            return view;
+        } else {
+            return null;
+        }
+    }
 
-    public abstract void onViewListener();
+    protected abstract void onViewReady(Bundle savedInstanceState);
+
+    protected void onViewListener() {
+
+    }
 
     @Override
     public void onDestroyView() {

@@ -37,5 +37,6 @@ public abstract class BindActivity<V extends BaseViewModel> extends AppCompatAct
 
     protected abstract void onViewReady(Bundle savedInstanceState);
 
-    protected abstract void onViewListener();
+    protected void onViewListener() {
+    }
 }
