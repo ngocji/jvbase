@@ -38,7 +38,7 @@ public abstract class BindBottomDialog extends BottomSheetDialogFragment {
     @Override
     public void onCreate(@androidx.annotation.Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setStyle(STYLE_NO_TITLE, initStyle());
+        initStyle();
         dialogStore = new ViewModelProvider(this, new ViewModelProvider.NewInstanceFactory()).get(DialogStore.class);
         dialogStore.addAll(tempProperties);
     }
@@ -86,8 +86,8 @@ public abstract class BindBottomDialog extends BottomSheetDialogFragment {
         super.onDestroyView();
     }
 
-    protected int initStyle() {
-        return R.style.style_dialog_90;
+    protected void initStyle() {
+        setStyle(STYLE_NO_TITLE, R.style.style_dialog_90);
     }
 
     public void show(FragmentManager fragmentManager) {
