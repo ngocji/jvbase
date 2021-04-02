@@ -51,7 +51,8 @@ android {
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
-    api 'com.github.ngocji:jibase:2.2.4'
+    api 'com.github.ngocji:jibase:2.2.5'
+//    api project(':jibaseDebug')
 
     //ButterKnife
     api "com.jakewharton:butterknife:10.1.0"
