@@ -1,5 +1,6 @@
 package com.jivbase.ui;
 
+import android.app.Dialog;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -38,8 +39,6 @@ public abstract class BindDialog extends DialogFragment {
     @Override
     public void onCreate(@androidx.annotation.Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getDialog().requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getDialog().getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         initStyle();
         dialogStore = new ViewModelProvider(this, new ViewModelProvider.NewInstanceFactory()).get(DialogStore.class);
         dialogStore.addAll(tempProperties);
@@ -67,6 +66,19 @@ public abstract class BindDialog extends DialogFragment {
         } else {
             return null;
         }
+    }
+
+    @NonNull
+    @NotNull
+    @Override
+    public Dialog onCreateDialog(@androidx.annotation.Nullable @Nullable Bundle savedInstanceState) {
+        Dialog dialog = super.onCreateDialog(savedInstanceState);
+        if (dialog != null) {
+            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        }
+
+        return dialog;
     }
 
     protected abstract void onViewReady(Bundle savedInstanceState);
