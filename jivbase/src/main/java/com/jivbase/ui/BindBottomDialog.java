@@ -38,6 +38,8 @@ public abstract class BindBottomDialog extends BottomSheetDialogFragment {
     @Override
     public void onCreate(@androidx.annotation.Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getDialog().requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getDialog().getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         initStyle();
         dialogStore = new ViewModelProvider(this, new ViewModelProvider.NewInstanceFactory()).get(DialogStore.class);
         dialogStore.addAll(tempProperties);
@@ -52,9 +54,6 @@ public abstract class BindBottomDialog extends BottomSheetDialogFragment {
     @Override
     public void onViewCreated(@NonNull View view, @androidx.annotation.Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        getDialog().requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getDialog().getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
         onViewReady(savedInstanceState);
         onViewListener();
     }
